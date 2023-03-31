@@ -1,0 +1,29 @@
+{
+  "name": "dp-nightwatch-poc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx tsc && npx nightwatch --env browserstack.chrome,browserstack.safari",
+    "test:regression": "npx tsc && npx nightwatch --env browserstack.chrome --tag regression",
+    "test:mobile": "npx tsc && npx nightwatch --env app.android.emulator"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@nightwatch/mobile-helper": "^0.1.12",
+    "@types/nightwatch": "^2.3.22",
+    "appium": "^1.22.3",
+    "chromedriver": "^111.0.0",
+    "nightwatch": "^2.6.19",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.2"
+  },
+  "dependencies": {
+    "@greatminds/dp-configuration-lib": "^3.2.0",
+    "@greatminds/dp-logger-lib": "^3.2.0",
+    "dotenv": "^16.0.3",
+    "selenium-webdriver": "^4.8.2"
+  }
+}
