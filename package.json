@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx tsc && npx nightwatch --env browserstack.chrome",
+    "test:local": "npx tsc && npx nightwatch --env chrome",
     "test:regression": "npx tsc && npx nightwatch --env browserstack.chrome --tag regression"
   },
   "keywords": [],

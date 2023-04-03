@@ -7,7 +7,8 @@ module.exports = {
     page_objects_path: [
         './dis/src/pages/auth',
         './dis/src/pages/explore',
-        './dis/src/pages/assess'
+        './dis/src/pages/assess',
+        './dis/src/pages/modals'
     ],
     // See https://nightwatchjs.org/guide/extending-nightwatch/adding-custom-commands.html
     custom_commands_path: [],
@@ -25,7 +26,6 @@ module.exports = {
     test_settings: {
         default: {
             disable_error_log: false,
-            launch_url: 'https://digital.uat.greatminds.dev/',
             screenshots: {
                 enabled: false,
                 path: 'screens',
@@ -39,31 +39,30 @@ module.exports = {
                 waitForConditionTimeout: 20000
             }
         },
-        // chrome: {
-        //   desiredCapabilities: {
-        //     browserName: 'chrome',
-        //     'goog:chromeOptions': {
-        //       // More info on Chromedriver: https://sites.google.com/a/chromium.org/chromedriver/
-        //       //
-        //       // w3c:false tells Chromedriver to run using the legacy JSONWire protocol (not required in Chrome 78)
-        //       w3c: true,
-        //       args: [
-        //         //'--no-sandbox',
-        //         //'--ignore-certificate-errors',
-        //         //'--allow-insecure-localhost',
-        //         //'--headless'
-        //       ]
-        //     }
-        //   },
-        //
-        //   webdriver: {
-        //     start_process: true,
-        //     server_path: '',
-        //     cli_args: [
-        //       // --verbose
-        //     ]
-        //   }
-        // },
+        chrome: {
+            desiredCapabilities: {
+                browserName: 'chrome',
+                'goog:chromeOptions': {
+                    // More info on Chromedriver: https://sites.google.com/a/chromium.org/chromedriver/
+                    //
+                    // w3c:false tells Chromedriver to run using the legacy JSONWire protocol (not required in Chrome 78)
+                    w3c: true,
+                    args: [
+                    //'--no-sandbox',
+                    //'--ignore-certificate-errors',
+                    //'--allow-insecure-localhost',
+                    //'--headless'
+                    ]
+                }
+            },
+            webdriver: {
+                start_process: true,
+                server_path: '',
+                cli_args: [
+                // --verbose
+                ]
+            }
+        },
         //////////////////////////////////////////////////////////////////////////////////
         // Configuration for using the browserstack.com cloud service                    |
         //                                                                               |
@@ -98,6 +97,22 @@ module.exports = {
                 start_process: false
             }
         },
+        'browserstack.chrome': {
+            extends: 'browserstack',
+            desiredCapabilities: {
+                browserName: 'chrome',
+                'goog:chromeOptions': {
+                    w3c: true
+                }
+            }
+        },
+        'browserstack.safari': {
+            extends: 'browserstack',
+            desiredCapabilities: {
+                browserName: 'safari',
+                // add other capabilities you want
+            }
+        },
         'app.android.emulator': {
             extends: 'app',
             'desiredCapabilities': {
@@ -122,22 +137,6 @@ module.exports = {
                     // chromedriverExecutable: `${__dirname}/chromedriver-mobile/chromedriver`,
                     newCommandTimeout: 0
                 }
-            }
-        },
-        'browserstack.chrome': {
-            extends: 'browserstack',
-            desiredCapabilities: {
-                browserName: 'chrome',
-                'goog:chromeOptions': {
-                    w3c: true
-                }
-            }
-        },
-        'browserstack.safari': {
-            extends: 'browserstack',
-            desiredCapabilities: {
-                browserName: 'safari',
-                // add other capabilities you want
             }
         },
     },
