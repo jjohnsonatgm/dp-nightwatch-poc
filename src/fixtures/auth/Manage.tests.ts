@@ -1,7 +1,7 @@
 import { NightwatchBrowser, NightwatchTests } from 'nightwatch';
-import { configVariables } from '../utils/InitTestHelper';
-import { LoginPage } from '../src/pages/auth/loginPage';
-import { ExplorePage } from '../src/pages/explore/explorePage';
+import { configVariables } from '../../../utils/InitTestHelper';
+import { LoginPage } from '../../pages/auth/loginPage';
+import { ExplorePage } from '../../pages/explore/explorePage';
 
 let logger;
 let data;

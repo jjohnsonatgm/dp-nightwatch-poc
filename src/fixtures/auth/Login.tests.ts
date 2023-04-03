@@ -1,8 +1,8 @@
 import { NightwatchTests, NightwatchBrowser } from "nightwatch";
-import { LoginPage } from '../src/pages/auth/loginPage';
-import { ExplorePage } from '../src/pages/explore/explorePage';
-import { configVariables } from '../utils/InitTestHelper';
-import { GradePage } from '../src/pages/explore/gradePage';
+import { LoginPage } from '../../pages/auth/loginPage';
+import { ExplorePage } from '../../pages/explore/explorePage';
+import { configVariables } from '../../../utils/InitTestHelper';
+import { GradePage } from '../../pages/explore/gradePage';
 
 let logger;
 let data;
@@ -24,7 +24,8 @@ const loginTest: NightwatchTests = {
     await browser.navigateTo(url);
     await login.loginWithEmail('playwright_t1@greatmindsdemo.com', 'Test@123');
     await explore.waitForExploreToBeReady();
-    await gradePage.clickModuleCard('em2.gk.m1');
+    await explore.openHamburgerMenu();
+    await explore.navigateToApp('Assign');
   }
 }
 

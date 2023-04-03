@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx tsc && npx nightwatch --env browserstack.chrome,browserstack.safari",
-    "test:regression": "npx tsc && npx nightwatch --env browserstack.chrome --tag regression",
-    "test:mobile": "npx tsc && npx nightwatch --env app.android.emulator"
+    "test": "npx tsc && npx nightwatch --env browserstack.chrome",
+    "test:regression": "npx tsc && npx nightwatch --env browserstack.chrome --tag regression"
   },
   "keywords": [],
   "author": "",
@@ -16,7 +15,6 @@
     "@types/nightwatch": "^2.3.22",
     "appium": "^1.22.3",
     "chromedriver": "^111.0.0",
-    "nightwatch": "^2.6.19",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.2"
   },
@@ -24,6 +22,7 @@
     "@greatminds/dp-configuration-lib": "^3.2.0",
     "@greatminds/dp-logger-lib": "^3.2.0",
     "dotenv": "^16.0.3",
+    "nightwatch": "^2.6.19",
     "selenium-webdriver": "^4.8.2"
   }
 }
